@@ -1,0 +1,130 @@
+<?php
+
+function paginaError($mensaje)
+{
+  header("HTTP/1.0 404 $mensaje");
+  inicioCabecera("PRACTICA");
+  finCabecera();
+  inicioCuerpo("ERROR");
+  echo "<br />\n";
+  echo $mensaje;
+  echo "<br />\n";
+  echo "<br />\n";  echo "<br />\n";
+  echo "<a href='/index.php'>Ir a la pagina principal</a>\n";
+  
+  finCuerpo();  
+}
+
+function inicioCabecera($titulo)
+{
+?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+            <meta http-equiv="X-UA-Compatible"  content="IE=edge,chrome=1">
+
+        <title><?php echo $titulo ?></title>
+        <meta name="description" content="">
+        <meta name="author" content="Administrador">
+
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+        <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        
+        <link rel="stylesheet" type="text/css" href="/estilos/base.css">
+<?php
+}
+
+function finCabecera()
+{
+?>
+    </head>
+<?php   
+}
+
+function inicioCuerpo(string $cabecera, array $ubicacion = [])
+{
+    global $acceso;
+
+?>
+    <body>
+        <div id="documento">
+        
+            <header>
+                <a href="../../index.php"><img src="../../favicon.ico" alt="Volver al inicio" style="width: 50px; height: 50px;"></a>
+                <h1 id="titulo"><?php echo $cabecera;?></h1>
+            </header>
+            
+            <div id="barraLogin">
+                
+            </div>
+            <div class="barraMenu">
+                <ul>
+                    <li><a href="/index.php">Inicio</a></li>
+                    <li><a href="/aplicacion/pruebas/index.php">Pruebas</a></li>
+                    <li><a href="/aplicacion/relacion1/index.php">Relacion 1</a></li>
+                    <li><a href="/aplicacion/relacion2/index.php">Relacion 2</a></li>
+                    <li><a href="/aplicacion/relacion3/index.php">Relacion 3</a></li>
+                    <li><a href="/aplicacion/relacion4/index.php">Relacion 4</a></li>
+                    <li><a href="/aplicacion/relacion5/index.php">Relacion 5</a></li>
+                 </ul>
+                
+            </div>
+            <br>
+            <div id="barraUbicacion">
+                <?php
+                if($ubicacion)
+                {
+                    
+                    foreach ($ubicacion as $elem) 
+                    {
+                        if(isset($elem["ENLACE"]))
+                        {
+                            echo "<a &nbsp;&nbsp; href='{$elem["ENLACE"]}' >";
+                            
+                        } 
+                        
+                        echo $elem["TEXTO"];
+
+                        if(isset($elem["ENLACE"]))
+                        {
+                            echo "</a>";
+                        }
+
+                        if(isset($elem["ADICIONAL"]))
+                            echo $elem["ADICIONAL"];
+                        else
+                            echo "&nbsp;&nbsp;";
+                    }
+                }
+
+                ?>
+            </div>
+            
+            <div>
+<?php   
+}
+
+function finCuerpo()
+{
+?>
+                <br />
+                <br />
+            </div>
+            <footer>
+                <hr width="90%"  />  
+                <div>
+                    &copy; Copyright  by Ángel
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+<?php
+}
