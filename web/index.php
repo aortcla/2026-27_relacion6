@@ -12,10 +12,10 @@ $barra=[
 ];
 
 //dibuja la plantilla de la vista
-inicioCabecera("tienda");
+inicioCabecera("Tienda");
 cabecera();
 finCabecera();
-inicioCuerpo("tienda", $barra);
+inicioCuerpo("Tienda", $barra);
 cuerpo();  //llamo a la vista
 finCuerpo();
 // **********************************************************
