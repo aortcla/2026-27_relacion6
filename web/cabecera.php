@@ -27,3 +27,61 @@ spl_autoload_register(function ($clase){
 include(RUTABASE."/aplicacion/plantilla/plantilla.php");
 
 //creo todos los objetos que necesita mi aplicación
+
+include_once __DIR__ . '/scripts/librerias/validacion.php';
+
+$arrayMuebles = [
+    new MuebleTradicional(
+    nombre: "Mesa de comedor extensible",
+    fabricante: "Carpintería Ibérica",
+    pais: "ESPAÑA",
+    anio: 2023,
+    fechaIniVenta: "01/06/2023",
+    fechaFinVenta: "31/12/2035",
+    precio: 180.50,
+    peso: 45.0,
+    serie: "S02"
+),
+    new MuebleTradicional(
+    nombre: "Estantería de nogal",
+    fabricante: "Mobiliario Italiano",
+    pais: "ITALIA",
+    anio: 2021,
+    fechaIniVenta: "15/09/2021",
+    fechaFinVenta: "31/12/2028",
+    precio: 120.00,
+    peso: 30.5,
+    serie: "S08"
+),
+    new MuebleTradicional(
+    nombre: "Cómoda de 4 cajones",
+    fabricante: "WoodCraft Design",
+    pais: "ALEMANIA",
+    anio: 2024,
+    fechaIniVenta: "01/02/2024",
+    fechaFinVenta: "31/12/2040",
+    precio: 210.75,
+    peso: 55.0,
+    serie: "S15"
+),
+    new MubleReciclado(
+    nombre: "Banco de jardín de madera recuperada",
+    fabricante: "EcoMuebles Sur",
+    pais: "ESPAÑA",
+    anio: 2024,
+    fechaIniVenta: "01/03/2024",
+    fechaFinVenta: "31/12/2038",
+    precio: 130.00,
+    porcentajeReciclado: 90
+),
+    new MubleReciclado(
+    nombre: "Estantería industrial reciclada",
+    fabricante: "ReDesign Lab",
+    pais: "ITALIA",
+    anio: 2022,
+    fechaIniVenta: "15/08/2022",
+    fechaFinVenta: "31/12/2030",
+    precio: 160.25,
+    porcentajeReciclado: 75
+)
+];

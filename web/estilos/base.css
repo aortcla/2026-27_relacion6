@@ -1,10 +1,10 @@
-@charset "UTF8"; 
+@charset "UTF-8"; 
 
 body { 
-  background-color: #0c0d12; 
+  background-color: #1a261e; 
   font-size: 16px; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-  color: #1d1d1f; 
+  color: #3e3226; 
   line-height: 1.47059; 
   margin: 0; 
   padding: 40px 20px; 
@@ -12,61 +12,63 @@ body {
 
 #documento { 
   margin: 0 auto; 
-  background-color: #f6f7f2; 
+  background-color: #fcf8ee; 
   width: 700px; 
-  border-radius: 18px; 
-  box-shadow: 0px 12px 40px rgba(24c, 238, 10, 0.15), 0px 0px 20px rgba(0, 255, 102, 0.1); 
+  border-radius: 12px; 
+  box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(212, 160, 23, 0.15); 
   overflow: hidden; 
-  border: 1px solid #fcee0a; 
+  border: 3px solid #7c6435; 
 } 
 
 #cabecera { 
-  background: linear-gradient(90deg, #fcee0a 0%, #10141d 100%); 
+  background: linear-gradient(135deg, #2b4731 0%, #17271b 100%); 
   padding: 24px 32px; 
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  border-bottom: 3px solid #00ff66; 
+  border-bottom: 3px solid #d4a017; 
 } 
 
 #cabecera #logo { 
   width: 60px; 
   height: 40px; 
   object-fit: contain; 
-  filter: drop-shadow(0px 0px 4px rgba(0, 255, 102, 0.6));
+  filter: drop-shadow(0px 0px 6px rgba(212, 160, 23, 0.7));
 } 
 
 #cabecera #titulo { 
-  font-size: 1.3rem; 
+  font-size: 1.4rem; 
   font-style: normal; 
-  font-weight: 600; 
-  color: #ffffff; 
-  letter-spacing: -0.022em; 
+  font-weight: 700; 
+  color: #f3e5ab; 
+  letter-spacing: 0.05em; 
   margin: 0; 
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+  font-family: "Georgia", serif;
 } 
 
 .boton { 
-  background-color: #00ff66; 
-  color: #0c0d12; 
-  border: none; 
-  padding: 8px 16px; 
-  border-radius: 980px; 
+  background: linear-gradient(180deg, #d4a017 0%, #aa7c11 100%); 
+  color: #2b1d0c; 
+  border: 2px solid #5a400a; 
+  padding: 8px 18px; 
+  border-radius: 6px; 
   font-size: 0.85rem; 
-  font-weight: 600; 
+  font-weight: 700; 
   cursor: pointer; 
   display: inline-block; 
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
+  transition: all 0.2s ease; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 } 
 
 .boton a { 
   text-decoration: none; 
-  color: #0c0d12; 
+  color: #2b1d0c; 
 } 
 
 .boton a:visited { 
   text-decoration: none; 
-  color: #0c0d12; 
+  color: #2b1d0c; 
 } 
 
 .boton a:hover { 
@@ -75,93 +77,130 @@ body {
 } 
 
 .boton:hover { 
-  background-color: #fcee0a; 
-  color: #0c0d12;
-  box-shadow: 0px 0px 12px rgba(252, 238, 10, 0.7); 
-  transform: scale(1.02); 
+  background: linear-gradient(180deg, #e6b325 0%, #c28f14 100%); 
+  color: #1a1207; 
+  box-shadow: 0px 0px 10px rgba(212, 160, 23, 0.8); 
+  transform: translateY(-1px); 
 } 
+
+/* ESTILO GENERAL PARA TABLAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fcf8ee;
+  font-size: 0.9rem;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: #2b4731;
+  color: #d4a017;
+  font-weight: 700;
+  text-align: left;
+  padding: 16px;
+  border-bottom: 3px solid #d4a017;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  font-family: "Georgia", serif;
+}
+
+table td {
+  padding: 16px;
+  border-bottom: 1px solid #dcd1b3;
+  color: #3e3226;
+}
+
+table tr:nth-child(even) {
+  background-color: #f4efe2;
+  color: #3e3226;
+}
+/* FIN ESTILO GENERAL PARA TABLAS */
 
 .tabla { 
   width: 100%; 
   border-collapse: collapse; 
-  background-color: #ffffff; 
+  background-color: #fcf8ee; 
   font-size: 0.9rem; 
 } 
 
 .tabla th { 
-  background-color: #10141d; 
-  color: #fcee0a; 
-  font-weight: 600; 
+  background-color: #2b4731; 
+  color: #d4a017; 
+  font-weight: 700; 
   text-align: left; 
   padding: 16px; 
-  border-bottom: 2px solid #00ff66; 
-  font-size: 0.8rem; 
-  letter-spacing: -0.01em; 
+  border-bottom: 3px solid #d4a017; 
+  font-size: 0.85rem; 
+  letter-spacing: 0.03em; 
+  font-family: "Georgia", serif;
 } 
 
 .tabla td { 
   padding: 16px; 
-  border-bottom: 1px solid #e2e4d9; 
-  color: #1d1d1f; 
+  border-bottom: 1px solid #dcd1b3; 
+  color: #3e3226; 
 } 
 
 .tabla tr.par { 
-  background-color: #fbfbfa; 
-  color: #1d1d1f; 
+  background-color: #f4efe2; 
+  color: #3e3226; 
 } 
 
 #pie { 
-  background-color: #06070a; 
-  color: #fcee0a; 
+  background-color: #17271b; 
+  color: #c9b996; 
   font-size: 0.75rem; 
   padding: 24px; 
   text-align: center; 
-  border-top: 2px solid #00ff66; 
+  border-top: 2px solid #d4a017; 
   line-height: 1.6; 
   font-weight: 600;
 } 
 
 #pie footer hr {
   border: 0;
-  border-top: 1px solid #00ff66;
+  border-top: 1px solid #d4a017;
   margin-bottom: 12px;
-  opacity: 0.3;
+  opacity: 0.4;
 } 
 
 .for_texto { 
-  border: 1px solid #10141d; 
-  background-color: #ffffff; 
+  border: 2px solid #b59f78; 
+  background-color: #fffefb; 
   padding: 12px; 
   margin: 6px 0; 
-  border-radius: 8px; 
+  border-radius: 6px; 
   font-size: 0.9rem; 
   width: 100%; 
   box-sizing: border-box; 
   font-family: inherit; 
-  color: #1d1d1f; 
+  color: #3e3226; 
   transition: border-color 0.2s ease, box-shadow 0.2s ease; 
 } 
 
 .for_texto:focus { 
   outline: none; 
-  border-color: #00ff66; 
-  box-shadow: 0px 0px 8px rgba(0, 255, 102, 0.4); 
+  border-color: #d4a017; 
+  box-shadow: 0px 0px 8px rgba(212, 160, 23, 0.5); 
 } 
 
 .error { 
-  background-color: #ffebeb; 
-  color: #ff0055; 
-  border: 1px solid #ff0055; 
+  background-color: #fae6e6; 
+  color: #8b0000; 
+  border: 2px solid #b33939; 
   padding: 14px 16px; 
-  border-radius: 8px; 
+  border-radius: 6px; 
   font-size: 0.9rem; 
-  font-weight: 500; 
+  font-weight: 600; 
 } 
 
 .barraMenu { 
-  background-color: #10141d; 
+  background-color: #1f3323; 
   padding: 0; 
-  border-bottom: 2px solid #00ff66; 
+  border-bottom: 2px solid #d4a017; 
 } 
 
 .barraMenu ul { 
@@ -183,43 +222,45 @@ body {
 .barraMenu ul li a { 
   display: block; 
   text-decoration: none; 
-  color: #8892b0; 
-  font-weight: 500; 
-  font-size: 0.75rem; 
-  letter-spacing: -0.01em; 
+  color: #c9b996; 
+  font-weight: 600; 
+  font-size: 0.8rem; 
+  letter-spacing: 0.05em; 
   padding: 14px 24px; 
-  transition: color 0.2s ease; 
+  transition: color 0.2s ease, background-color 0.2s ease; 
 } 
 
 .barraMenu ul li a:hover { 
-  color: #00ff66; 
-  text-shadow: 0px 0px 5px #00ff66;
+  color: #d4a017; 
+  background-color: rgba(212, 160, 23, 0.1);
+  text-shadow: 0px 0px 6px rgba(212, 160, 23, 0.6);
 } 
 
 #barraLogin {
-  background-color: #06070a;
-  color: #fcee0a;
+  background-color: #0f1a12;
+  color: #d4a017;
   font-size: 0.8rem;
   text-align: right;
   padding: 6px 24px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 #barraUbicacion {
-  background-color: #eaebd9; 
+  background-color: #eae1cc; 
   padding: 10px 24px;
   font-size: 0.8rem;
-  color: #4c523c;
-  border-bottom: 1px solid #c8cbd0;
+  color: #5c4d32;
+  border-bottom: 1px solid #d3c5a3;
 }
 
 #barraUbicacion a {
-  color: #10141d;
+  color: #2b4731;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 #barraUbicacion a:hover {
-  color: #00ff66;
+  color: #d4a017;
   text-decoration: underline;
 }

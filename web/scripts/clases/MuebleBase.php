@@ -3,7 +3,7 @@ abstract class MuebleBase {
 
 const MAXIMO_MUEBLES = 5;
 
-private static int $_mueblesCreados;
+private static int $_mueblesCreados = 0;
 
 private string $_nombre;
 private string $_fabricante = "FaMu:";
@@ -12,6 +12,8 @@ private int $_anio = 2020;
 private string $_fechaIniVenta = "01/01/2020";
 private string $_fechaFinVenta = "31/12/2040";
 private float $_precio = 30;
+
+private Caracteristicas $caracteristicas;
 
 public function __construct(string $nombre, string $fabricante = "FaMu:", string $pais = "ESPAÑA", int $anio = 2020,
                            string $fechaIniVenta = "01/01/2020", string $fechaFinVenta = "31/12/2040", float $precio = 30){
@@ -149,7 +151,7 @@ abstract function damePropiedadesAdicionales();
  *
  * @return bool
  */
-static function puedeCrear(&$num):bool{
+static function puedeCrear(int &$num):bool{
     $num = self::MAXIMO_MUEBLES - self::$_mueblesCreados;
 
     if(self::$_mueblesCreados < self::MAXIMO_MUEBLES){
@@ -167,10 +169,32 @@ static function puedeCrear(&$num):bool{
  */
 public function __toString():string{
 
-    $cadena = "MUEBLE de clase ".get_class($this)." con nombre {$this->_nombre}, fabricante {$this->_fabricante}, fabricado en {$this->_pais}
-    a partir del año {$this->_anio}, vendido desde {$this->_fechaIniVenta} hasta {$this->_fechaFinVenta}, precio {$this->_precio}";
+    $cadena = "MUEBLE de clase ".get_class($this)." con nombre {$this->_nombre}, fabricante {$this->_fabricante},
+    fabricado en {$this->_pais} a partir del año {$this->_anio}, vendido desde {$this->_fechaIniVenta}
+     hasta {$this->_fechaFinVenta}, precio {$this->_precio}, caracteristicas {$this->caracteristicas}";
 
     return $cadena;
+}
+
+public function anadirCaracteristicas(string $nombre, mixed $valor, mixed ...$demas){
+
+    $this->caracteristicas->__set($nombre, $valor);
+
+    if(count($demas) % 2 !== 0){
+        array_pop($demas);
+    }
+
+    for ($i = 0; $i < count($demas); $i += 2) {
+        $nom = $demas[$i];
+        $val = $demas[$i + 1];
+        
+        $this->caracteristicas->__set($nom, $val);
+    }
+
+}
+
+public function getCaracteristicas():Caracteristicas{
+    return $this->caracteristicas;
 }
 
  //Se deshabilita la sobrecarga dinámica de propiedades
