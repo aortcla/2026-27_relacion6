@@ -1,7 +1,7 @@
 <?php
 abstract class MuebleBase {
 
-const MAXIMO_MUEBLES = 5;
+const MAXIMO_MUEBLES = 7;
 
 private static int $_mueblesCreados = 0;
 
@@ -28,6 +28,7 @@ public function __construct(string $nombre, string $fabricante = "FaMu:", string
         $this->setFechaIniVenta($fechaIniVenta);
         $this->setFechaFinVenta($fechaFinVenta);
         $this->setPrecio($precio);
+        $this->caracteristicas = new Caracteristicas();
 
         MuebleBase::$_mueblesCreados++;
     }else{

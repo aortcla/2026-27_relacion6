@@ -1,6 +1,6 @@
 <?php
 
-final class MubleReciclado extends MuebleBase{
+final class MuebleReciclado extends MuebleBase{
 
 private int $_porcentajeReciclado = 10;
 

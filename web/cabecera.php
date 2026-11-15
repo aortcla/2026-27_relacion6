@@ -1,5 +1,7 @@
 <?php 
-date_default_timezone_set('Europe/Madrid');
+
+include_once(dirname(__FILE__) . "/scripts/librerias/validacion.php");
+date_default_timezone_set('Europe/Madrid'); // Configurar la zona horaria
 
 define("RUTABASE", dirname(__FILE__));
 //define("MODO_TRABAJO","produccion"); //en "produccion o en desarrollo
@@ -11,7 +13,7 @@ if (MODO_TRABAJO=="produccion")
         error_reporting(E_ALL);  
 
 spl_autoload_register(function ($clase){
-    $ruta=RUTABASE."/scripts/clases/";
+    $ruta=RUTABASE."/aplicacion/clases/curso2026/";
     $fichero=$ruta."$clase.php";
     
     if (file_exists($fichero))
@@ -64,7 +66,7 @@ $arrayMuebles = [
     peso: 55.0,
     serie: "S15"
 ),
-    new MubleReciclado(
+    new MuebleReciclado(
     nombre: "Banco de jardín de madera recuperada",
     fabricante: "EcoMuebles Sur",
     pais: "ESPAÑA",
@@ -74,7 +76,7 @@ $arrayMuebles = [
     precio: 130.00,
     porcentajeReciclado: 90
 ),
-    new MubleReciclado(
+    new MuebleReciclado(
     nombre: "Estantería industrial reciclada",
     fabricante: "ReDesign Lab",
     pais: "ITALIA",
