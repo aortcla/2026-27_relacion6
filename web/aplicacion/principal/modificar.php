@@ -11,7 +11,7 @@ $barra = [
     ]
 ];
 
-$idMueble = isset($_REQUEST["id_mueble"]) ? intval($_REQUEST["id_mueble"]) : 0;
+$idMueble = isset($_REQUEST["id_mueble"]);
 
 if (!isset($arrayMuebles[$idMueble])) {
     header("Location: /aplicacion/principal/index.php");
