@@ -178,17 +178,17 @@ function cuerpo(int $idMueble, MuebleBase $mueble, array $datos, array $errores,
 
         echo "<div class='campo'>";
         echo "<label for='nombre'>Nombre:</label>";
-        echo "<input type='text' id='nombre' name='nombre' value='" . htmlspecialchars($datos["nombre"]) . "'>";
+        echo "<input type='text' id='nombre' name='nombre' value='" . $datos["nombre"] . "'>";
         echo "</div>";
 
         echo "<div class='campo'>";
         echo "<label for='fabricante'>Fabricante:</label>";
-        echo "<input type='text' id='fabricante' name='fabricante' value='" . htmlspecialchars($datos["fabricante"]) . "'>";
+        echo "<input type='text' id='fabricante' name='fabricante' value='" . $datos["fabricante"] . "'>";
         echo "</div>";
 
         echo "<div class='campo'>";
         echo "<label for='pais'>País:</label>";
-        echo "<input type='text' id='pais' name='pais' value='" . htmlspecialchars($datos["pais"]) . "'>";
+        echo "<input type='text' id='pais' name='pais' value='" . $datos["pais"] . "'>";
         echo "</div>";
 
         echo "<div class='campo'>";
@@ -198,12 +198,12 @@ function cuerpo(int $idMueble, MuebleBase $mueble, array $datos, array $errores,
 
         echo "<div class='campo'>";
         echo "<label for='fechaIniVenta'>Fecha Inicio Venta (dd/mm/aaaa):</label>";
-        echo "<input type='text' id='fechaIniVenta' name='fechaIniVenta' value='" . htmlspecialchars($datos["fechaIniVenta"]) . "'>";
+        echo "<input type='text' id='fechaIniVenta' name='fechaIniVenta' value='" . $datos["fechaIniVenta"] . "'>";
         echo "</div>";
 
         echo "<div class='campo'>";
         echo "<label for='fechaFinVenta'>Fecha Fin Venta (dd/mm/aaaa):</label>";
-        echo "<input type='text' id='fechaFinVenta' name='fechaFinVenta' value='" . htmlspecialchars($datos["fechaFinVenta"]) . "'>";
+        echo "<input type='text' id='fechaFinVenta' name='fechaFinVenta' value='" . $datos["fechaFinVenta"] . "'>";
         echo "</div>";
 
         echo "<div class='campo'>";
@@ -224,7 +224,7 @@ function cuerpo(int $idMueble, MuebleBase $mueble, array $datos, array $errores,
 
             echo "<div class='campo'>";
             echo "<label for='serie'>Serie (ej. S01):</label>";
-            echo "<input type='text' id='serie' name='serie' value='" . htmlspecialchars($datos["serie"]) . "'>";
+            echo "<input type='text' id='serie' name='serie' value='" . $datos["serie"] . "'>";
             echo "</div>";
         }
 
