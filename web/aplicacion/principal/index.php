@@ -63,6 +63,7 @@ function cuerpo(array $muebles, ?MuebleBase $muebleSeleccionado, int $indiceSele
                 <th>País</th>
                 <th>Año</th>
                 <th>Precio (€)</th>
+                <th>Material</th>
             </tr>
         </thead>
         <tbody>
@@ -76,6 +77,7 @@ function cuerpo(array $muebles, ?MuebleBase $muebleSeleccionado, int $indiceSele
                     <td>". $mueble->getPais() ."</td>
                     <td>". $mueble->getAnio() ."</td>
                     <td>". number_format($mueble->getPrecio(), 2)  ."€</td>
+                    <td>". $mueble->getMaterialDescripcion() ."</td>
                 </tr>".PHP_EOL;
             }
             ?>
@@ -109,6 +111,7 @@ function cuerpo(array $muebles, ?MuebleBase $muebleSeleccionado, int $indiceSele
         echo "<p>Fecha inicio venta: ". $muebleSeleccionado->getFechaIniVenta() ."</p>".PHP_EOL;
         echo "<p>Fecha fin venta: ". $muebleSeleccionado->getFechaFinVenta() ."</p>".PHP_EOL;
         echo "<p>Precio: ". $muebleSeleccionado->getPrecio() ."</p>".PHP_EOL;
+        echo "<p>Material: ". $muebleSeleccionado->getMaterialDescripcion() ."</p>".PHP_EOL;
 
         foreach($muebleSeleccionado->damePropiedadesAdicionales() as $prop => $valor)
         {
@@ -122,3 +125,4 @@ function cuerpo(array $muebles, ?MuebleBase $muebleSeleccionado, int $indiceSele
         }
     }
 }
+//comentario de prueba guardado

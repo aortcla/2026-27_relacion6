@@ -30,6 +30,7 @@ $datos = [
     "fechaIniVenta" => $mueble->getFechaIniVenta(),
     "fechaFinVenta" => $mueble->getFechaFinVenta(),
     "precio" => $mueble->getPrecio(),
+    "material" => $mueble->getMaterial(),
     "porcentajeReciclado" => ($mueble instanceof MuebleReciclado) ? $mueble->getPorcentajeReciclado() : 10,
     "peso" => ($mueble instanceof MuebleTradicional) ? $mueble->getPeso() : 15,
     "serie" => ($mueble instanceof MuebleTradicional) ? $mueble->getSerie() : "S01"
@@ -44,6 +45,7 @@ if (isset($_POST["guardar"])) {
     $datos["fechaIniVenta"] = trim($_POST["fechaIniVenta"]);
     $datos["fechaFinVenta"] = trim($_POST["fechaFinVenta"]);
     $datos["precio"] = floatval($_POST["precio"]);
+    $datos["material"] = intval($_POST["material"]);
 
     if ($mueble instanceof MuebleReciclado) {
         $datos["porcentajeReciclado"] = intval($_POST["porcentajeReciclado"]);
@@ -84,6 +86,10 @@ if (isset($_POST["guardar"])) {
         $errores["precio"][] = "El precio no puede ser inferior a 30 €.";
     }
 
+    if ($datos["material"] % 5 !== 0) {
+        $errores["material"][] = "El material debe ser multiplo de 5";
+    }
+
     if ($mueble instanceof MuebleReciclado) {
         if ($datos["porcentajeReciclado"] < 0 || $datos["porcentajeReciclado"] > 100) {
             $errores["porcentajeReciclado"][] = "El porcentaje de reciclado debe estar entre 0 y 100.";
@@ -105,6 +111,7 @@ if (isset($_POST["guardar"])) {
         $mueble->setFechaIniVenta($datos["fechaIniVenta"]);
         $mueble->setFechaFinVenta($datos["fechaFinVenta"]);
         $mueble->setPrecio($datos["precio"]);
+        $mueble->setMaterial($datos["material"]);
 
         if ($mueble instanceof MuebleReciclado) {
             $mueble->setPorcentajeReciclado($datos["porcentajeReciclado"]);
@@ -161,6 +168,7 @@ function cuerpo(int $idMueble, MuebleBase $mueble, array $datos, array $errores,
         echo "<li><strong>Fecha Inicio Venta:</strong> " . $mueble->getFechaIniVenta() . "</li>";
         echo "<li><strong>Fecha Fin Venta:</strong> " . $mueble->getFechaFinVenta() . "</li>";
         echo "<li><strong>Precio:</strong> " . number_format($mueble->getPrecio(), 2) . " €</li>";
+        echo "<li><strong>Material:</strong> " . $mueble->getMaterialDescripcion() . "</li>";
 
         if ($mueble instanceof MuebleReciclado) {
             echo "<li><strong>Porcentaje Reciclado:</strong> " . $mueble->getPorcentajeReciclado() . "%</li>";
@@ -209,6 +217,11 @@ function cuerpo(int $idMueble, MuebleBase $mueble, array $datos, array $errores,
         echo "<div class='campo'>";
         echo "<label for='precio'>Precio (€):</label>";
         echo "<input type='number' step='0.01' id='precio' name='precio' value='" . $datos["precio"] . "'>";
+        echo "</div>";
+
+        echo "<div class='campo'>";
+        echo "<label for='material'>Material :</label>";
+        echo "<input type='number' id='material' name='material' value='" . $datos["material"] . "'>";
         echo "</div>";
 
         if ($mueble instanceof MuebleReciclado) {

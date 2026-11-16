@@ -12,6 +12,7 @@ $mueble1 = new MuebleTradicional(
     "01/01/2024",
     "31/12/2030",
     150.50,
+    5,
     40,
     "S05"
 );
@@ -25,6 +26,7 @@ $mueble2 = new MuebleReciclado(
     "01/01/2023",
     "31/12/2030",
     75.50,
+    10,
     80
 );
 
@@ -235,6 +237,14 @@ function cuerpo($mueble1, $mueble2) {
 
     echo "<p>Número: " . $numero . "</p>";
     ?>
+
+    <h2>Prueba de material</h2>
+<?php
+    echo $mueble1->getMaterial()."<br>"; //devuelve el valor numerico del material  
+    echo $mueble1->setMaterial(15)."<br>";// devuelve 1 porque es true y se cambia el valor del material
+    echo $mueble1->getMaterial()."<br>";//devuelve el valor numerico del material 
+    echo $mueble1->getMaterialDescripcion();
+?>
 
 <?php
 }

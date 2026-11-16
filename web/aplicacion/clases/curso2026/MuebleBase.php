@@ -15,8 +15,12 @@ private float $_precio = 30;
 
 private Caracteristicas $caracteristicas;
 
+//por defecto hierro porque hierro tiene el 10
+private Materiales $_material = Materiales::Hierro;
+
 public function __construct(string $nombre, string $fabricante = "FaMu:", string $pais = "ESPAÑA", int $anio = 2020,
-                           string $fechaIniVenta = "01/01/2020", string $fechaFinVenta = "31/12/2040", float $precio = 30){
+                           string $fechaIniVenta = "01/01/2020", string $fechaFinVenta = "31/12/2040",
+                            float $precio = 30, int $material){
     if(MuebleBase::$_mueblesCreados < MuebleBase::MAXIMO_MUEBLES){
         if(!$this->setNombre($nombre) || $nombre === ""){
             throw new Exception("Nombre no válido");
@@ -29,6 +33,10 @@ public function __construct(string $nombre, string $fabricante = "FaMu:", string
         $this->setFechaFinVenta($fechaFinVenta);
         $this->setPrecio($precio);
         $this->caracteristicas = new Caracteristicas();
+
+        $this->setMaterial($material);
+        
+
 
         MuebleBase::$_mueblesCreados++;
     }else{
@@ -64,6 +72,11 @@ public function getFechaFinVenta():string{
 
 public function getPrecio():string{
     return $this->_precio;
+}
+
+//metodo get material, devuelve el entero del material
+public function getMaterial():int{
+    return $this->_material->value;
 }
 
 /*Setters*/
@@ -143,6 +156,21 @@ public function setPrecio(float $var):bool{
     }
 }
 
+//metodo set de material, le llega un entero y se asigna el material
+public function setMaterial(int $num):bool{
+    $arrayMateriales = Materiales::cases();
+    $flag = false;
+
+    foreach($arrayMateriales as $elem => $valor){
+        if($num === $valor->value){
+            $this->_material = $valor;
+            $flag = true;
+        }
+    }
+
+    return $flag;
+}
+
 abstract function damePropiedadesAdicionales();
 
 
@@ -196,6 +224,12 @@ public function anadirCaracteristicas(string $nombre, mixed $valor, mixed ...$de
 
 public function getCaracteristicas():Caracteristicas{
     return $this->caracteristicas;
+}
+
+//metodo que devuelve una cadena con la descripcion del material
+public function getMaterialDescripcion():string{
+    $cadena = "de material {$this->_material->name}";
+    return $cadena;
 }
 
  //Se deshabilita la sobrecarga dinámica de propiedades

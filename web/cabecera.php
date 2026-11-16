@@ -41,6 +41,7 @@ $arrayMuebles = [
     fechaIniVenta: "01/06/2023",
     fechaFinVenta: "31/12/2035",
     precio: 180.50,
+    material: 5,
     peso: 45.0,
     serie: "S02"
 ),
@@ -52,6 +53,7 @@ $arrayMuebles = [
     fechaIniVenta: "15/09/2021",
     fechaFinVenta: "31/12/2028",
     precio: 120.00,
+    material: 10,
     peso: 30.5,
     serie: "S08"
 ),
@@ -63,6 +65,7 @@ $arrayMuebles = [
     fechaIniVenta: "01/02/2024",
     fechaFinVenta: "31/12/2040",
     precio: 210.75,
+    material: 15,
     peso: 55.0,
     serie: "S15"
 ),
@@ -74,6 +77,7 @@ $arrayMuebles = [
     fechaIniVenta: "01/03/2024",
     fechaFinVenta: "31/12/2038",
     precio: 130.00,
+    material: 5,
     porcentajeReciclado: 90
 ),
     new MuebleReciclado(
@@ -84,6 +88,7 @@ $arrayMuebles = [
     fechaIniVenta: "15/08/2022",
     fechaFinVenta: "31/12/2030",
     precio: 160.25,
+    material: 20,
     porcentajeReciclado: 75
 )
 ];

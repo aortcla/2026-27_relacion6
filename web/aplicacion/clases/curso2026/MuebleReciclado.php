@@ -7,9 +7,9 @@ private int $_porcentajeReciclado = 10;
 
 public function __construct(string $nombre, string $fabricante = "FaMu:", string $pais = "ESPAÑA", int $anio = 2020,
                              string $fechaIniVenta = "01/01/2020", string $fechaFinVenta = "31/12/2040", float $precio = 30,
-                              int $porcentajeReciclado = 10){
+                             int $material, int $porcentajeReciclado = 10){
 
-    parent::__construct($nombre, $fabricante, $pais, $anio, $fechaIniVenta, $fechaFinVenta, $precio);
+    parent::__construct($nombre, $fabricante, $pais, $anio, $fechaIniVenta, $fechaFinVenta, $precio, $material);
 
     if(!$this->setPorcentajeReciclado($porcentajeReciclado)){
         $this->_porcentajeReciclado = 10;
